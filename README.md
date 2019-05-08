@@ -51,6 +51,11 @@ Deploy your Flask app to Heroku.
 
 * Ask your Instructor and TAs for help!
 
+* When setting up heroku app use free jaws db and papertrail in resources
+
+* Choose the github pipeline with the repo 
+
+
 - - -
 
 ## Advanced Challenge Assignment (Optional)
