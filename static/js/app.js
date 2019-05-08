@@ -6,8 +6,8 @@ function buildMetadata(sample) {
   (async function(){
     const url = `/metadata/${sample}`;
     const response = await d3.json(url);
-    const data = response;
-    console.log(data);
+    const mData = response;
+    console.log(mData);
       // Use d3 to select the panel with id of `#sample-metadata`
     const metaData = d3.select("#sample-metadata")
       // Use `.html("") to clear any existing metadata
@@ -15,7 +15,7 @@ function buildMetadata(sample) {
       // Use `Object.entries` to add each key and value pair to the panel
       // Hint: Inside the loop, you will need to use d3 to append new
       // tags for each key-value in the metadata.
-    Object.entries(data).forEach(([key, value]) => {
+    Object.entries(mData).forEach(([key, value]) => {
         console.log(`${key}: ${value}`);
         const row = metaData.append("ul");
         const cell = metaData.append("li");
@@ -30,11 +30,47 @@ function buildMetadata(sample) {
 
 function buildCharts(sample) {
   // @TODO: Use `d3.json` to fetch the sample data for the plots
+  (async function(){
+    const url = `/samples/${sample}`;
+    const response = await d3.json(url);
+    const data = response;
+    console.log(data);
     // @TODO: Build a Bubble Chart using the sample data
+   const trace1 = {
+      x: data.otu_ids,
+      y: data.sample_values,
+      mode: 'markers',
+      marker: {
+        size: data.otu_ids
+      }
+    }
+  const layout = {
+      title: 'Belly Button Bubble',
+      showlegend: false,
+      height: 600,
+      width: 600
+    }
+  traceData1 = [trace1]
+  Plotly.newPlot("bubble", traceData1, layout)
 
     // @TODO: Build a Pie Chart
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
+  const samples = data.sample_values
+  const pieData = {
+      values: samples.sort(function(a, b){return b-a}).slice(0,10),
+      labels: data.otu_ids.slice(0,10),
+      type: "pie"
+    }
+  const pieData2 = [pieData]
+  const layout2 = {
+      title: "Belly Button Pie",
+      height: 600,
+      width: 600
+    }
+  Plotly.newPlot("pie", pieData2, layout2)
+})()
+  
 }
 
 function init() {
