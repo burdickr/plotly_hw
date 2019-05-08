@@ -41,14 +41,15 @@ function buildCharts(sample) {
       y: data.sample_values,
       mode: 'markers',
       marker: {
-        size: data.otu_ids
+        //size: ,
+        color: data.otu_ids
       }
     }
   const layout = {
       title: 'Belly Button Bubble',
       showlegend: false,
       height: 600,
-      width: 600
+      width: 1000
     }
   traceData1 = [trace1]
   Plotly.newPlot("bubble", traceData1, layout)
