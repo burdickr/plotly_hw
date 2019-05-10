@@ -1,1 +1,1 @@
-FLASK_APP=plotly_hw/app.py flask run
+FLASK_APP=app.py flask run
