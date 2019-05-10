@@ -1,1 +1,1 @@
-web: gunicorn pet_pals.app:app
+web: gunicorn plotly_hw.app:app
