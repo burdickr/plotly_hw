@@ -1,5 +1,5 @@
 # Belly Button Biodiversity
-* Interact with the data by visiting [Belly Button Biodiversity App](http://ryans-ploty.herokuapp.com).
+* Interact with the data by visiting [Belly Button Biodiversity App](https://ryans-plotly.herokuapp.com/).
 
 
 * In this assignment, I built an interactive dashboard to explore the [Belly Button Biodiversity DataSet](http://robdunnlab.com/projects/belly-button-biodiversity/).
